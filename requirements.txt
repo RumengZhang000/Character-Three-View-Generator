@@ -1,0 +1,21 @@
+# Core ML / inference
+diffusers>=0.27.0
+transformers>=4.38.0
+accelerate>=0.27.0
+safetensors>=0.4.0
+huggingface_hub>=0.20.0
+
+# Face detection
+ultralytics>=8.1.0
+
+# Image / array processing
+Pillow>=10.0.0
+opencv-python>=4.8.0
+numpy>=1.24.0
+
+# UI
+gradio>=4.20.0
+
+# Note: PyTorch is not listed here because it must be installed with the
+# correct CUDA build for your system. Install separately, e.g.:
+#   pip install torch torchvision --index-url https://download.pytorch.org/whl/cu121
