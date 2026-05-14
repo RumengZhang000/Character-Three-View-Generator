@@ -2,6 +2,8 @@
 
 A generative AI pipeline for producing character turnaround sheets (front, side, back T-pose views) from a text description. The system integrates **SDXL ControlNet**, **YOLOv8 face detection**, and **SDXL Inpainting** into a single three-stage workflow, with dynamic switching between two base models for distinct aesthetic styles.
 
+![Gradio Interface](figure_ui.png)
+
 ## Overview
 
 Character turnaround sheets are a foundational deliverable in game and animation pre-production. Off-the-shelf text-to-image tools fail at this task in two ways: they produce single hero shots rather than spatially structured multi-view layouts, and character identity drifts visibly across regenerations.
@@ -21,7 +23,7 @@ A dual base-model architecture dynamically swaps between **Animagine XL 3.1** (a
 | ![2D example](examples/example_2d.png) | ![3D example](examples/example_3d.png) |
 | *Forest ranger archetype, anime style* | *Heroic knight archetype, concept art style* |
 
-## Demo
+## Features
 
 A Gradio interface exposes seven user-controllable parameters:
 
@@ -44,8 +46,8 @@ A Gradio interface exposes seven user-controllable parameters:
 
 ```bash
 # 1. Clone the repository
-git clone <repo-url>
-cd Character_ThreeView_AI
+git clone https://github.com/RumengZhang000/Character-Three-View-Generator.git
+cd Character-Three-View-Generator
 
 # 2. Create a virtual environment
 python -m venv .venv
@@ -94,17 +96,20 @@ Avoid verbose material descriptions (e.g. *weathered*, *rusted*, *mud-stained*) 
 ## Project Structure
 
 ```
-Character_ThreeView_AI/
+Character-Three-View-Generator/
 ├── app.py                       Main application
 ├── requirements.txt             Python dependencies
-├── yolov8n-face-lindevs.pt      YOLOv8 face detector weights
+├── yolov8n-face-lindevs.pt      YOLOv8 face detector weights (download separately)
+├── figure_ui.png                Gradio interface screenshot
 ├── templates/                   Built-in anatomical templates
 │   ├── woman.jpg
 │   ├── man.jpg
 │   └── kid.jpg
 ├── examples/                    Representative output images
-├── hf_models/                   HuggingFace model cache (auto-generated)
-└── results/                     Output images and JSON metadata (auto-generated)
+│   ├── example_2d.png
+│   └── example_3d.png
+├── hf_models/                   HuggingFace model cache (auto-generated, gitignored)
+└── results/                     Output images and JSON metadata (auto-generated, gitignored)
 ```
 
 ## Architecture
